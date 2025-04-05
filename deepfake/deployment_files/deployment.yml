@@ -1,0 +1,33 @@
+apiVersion : apps/v1
+kind : Deployment
+metadata :
+  name : deepfake-deployment
+  namespace : deep-fake-ns
+  labels : 
+    app : deepfake
+spec :
+
+  selector:
+    matchLabels :
+      app : deepfake
+
+  template :
+    
+    metadata :
+      labels :
+        app : deepfake
+
+    spec : 
+      containers : 
+        - name : deepfake-container
+          image : shubhamsainger/deepfake_classification:latest
+          resources :
+            requests :
+              cpu : 200m
+            limits : 
+              cpu : 600m
+
+
+
+
+
